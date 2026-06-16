@@ -55,6 +55,6 @@ describe('ciudad service', () => {
     it('deleteCiudad resolves when city exists', async () => {
         jest.mocked(ciudadRepo.findCiudadById).mockResolvedValue({ id: 1 } as any);
         jest.mocked(ciudadRepo.deleteCiudad).mockResolvedValue(null as any);
-        await deleteCiudad(1);
+        await expect(deleteCiudad(1)).resolves.toBeUndefined();
     });
 });
