@@ -1,0 +1,125 @@
+CIUDADES
+
+GET /api/ciudades?page=1&limit=10
+GET /api/ciudades
+GET /api/ciudades?page=0&limit=5
+GET /api/ciudades?page=2&limit=2
+GET /api/ciudades/1
+GET /api/ciudades/999
+GET /api/ciudades/abc
+
+POST /api/ciudades
+{ "name": "Valencia", "country": "España", "description": "Ciudad del Turia y la Ciudad de las Artes", "coordinates": [39.4699, -0.3763], "timestamp": 1700000010, "habitants": 800000, "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" }
+
+POST /api/ciudades — Sin description
+{ "name": "Bilbao", "country": "España", "coordinates": [43.2630, -2.9350], "timestamp": 1700000011, "habitants": 350000, "image": "data:image/png;base64,iVBORw..." }
+
+POST /api/ciudades — Body vacío
+{}
+
+POST /api/ciudades — Sin name
+{ "country": "España", "coordinates": [39.4, -0.3], "timestamp": 1700000010, "habitants": 500000, "image": "data:..." }
+
+POST /api/ciudades — Sin country
+{ "name": "Valencia", "coordinates": [39.4, -0.3], "timestamp": 1700000010, "habitants": 500000, "image": "data:..." }
+
+POST /api/ciudades — Sin coordinates
+{ "name": "Valencia", "country": "España", "timestamp": 1700000010, "habitants": 500000, "image": "data:..." }
+
+POST /api/ciudades — coordinates con un solo elemento
+{ "name": "Valencia", "country": "España", "coordinates": [39.4], "timestamp": 1700000010, "habitants": 500000, "image": "data:..." }
+
+POST /api/ciudades — coordinates[0] no es número
+{ "name": "Valencia", "country": "España", "coordinates": ["norte", -0.3], "timestamp": 1700000010, "habitants": 500000, "image": "data:..." }
+
+POST /api/ciudades — coordinates como objeto
+{ "name": "Valencia", "country": "España", "coordinates": { "lat": 39.4, "lng": -0.3 }, "timestamp": 1700000010, "habitants": 500000, "image": "data:..." }
+
+POST /api/ciudades — timestamp no numérico
+{ "name": "Valencia", "country": "España", "coordinates": [39.4, -0.3], "timestamp": "no-es-numero", "habitants": 500000, "image": "data:..." }
+
+POST /api/ciudades — habitants no numérico
+{ "name": "Valencia", "country": "España", "coordinates": [39.4, -0.3], "timestamp": 1700000010, "habitants": "muchos", "image": "data:..." }
+
+POST /api/ciudades — Sin image
+{ "name": "Valencia", "country": "España", "coordinates": [39.4, -0.3], "timestamp": 1700000010, "habitants": 500000 }
+
+PUT /api/ciudades/1
+{ "name": "Madrid Actualizado", "country": "España", "description": "Capital renovada", "coordinates": [40.4168, -3.7038], "timestamp": 1700000000, "habitants": 3500000, "image": "data:image/png;base64,iVBORw..." }
+
+PUT /api/ciudades/999
+{ "name": "Madrid Actualizado", "country": "España", "description": "Capital renovada", "coordinates": [40.4168, -3.7038], "timestamp": 1700000000, "habitants": 3500000, "image": "data:image/png;base64,iVBORw..." }
+
+PUT /api/ciudades/1 — Sin name
+{ "country": "España", "coordinates": [40.4, -3.7], "timestamp": 1700000000, "habitants": 3400000, "image": "data:..." }
+
+DELETE /api/ciudades/3
+DELETE /api/ciudades/999
+DELETE /api/ciudades/abc
+
+
+LUGARES
+
+GET /api/lugares/ciudad/1?page=1&limit=10
+GET /api/lugares/ciudad/2
+GET /api/lugares/ciudad/999
+GET /api/lugares/ciudad/abc
+GET /api/lugares/ciudad/1?page=0
+GET /api/lugares/ciudad/1?limit=0
+
+GET /api/lugares/1
+GET /api/lugares/999
+GET /api/lugares/abc
+
+POST /api/lugares
+{ "name": "Parque del Oeste", "description": "Parque tranquilo en el oeste de Madrid", "coordinates": [40.4329, -3.7190], "timestamp": 1700005000, "ciudad_id": 1 }
+
+POST /api/lugares — Sin description
+{ "name": "Sol", "coordinates": [40.4167, -3.7033], "timestamp": 1700005001, "ciudad_id": 1 }
+
+POST /api/lugares — Body vacío
+{}
+
+POST /api/lugares — Sin name
+{ "coordinates": [40.4, -3.7], "timestamp": 1700005000, "ciudad_id": 1 }
+
+POST /api/lugares — Sin coordinates
+{ "name": "Sol", "timestamp": 1700005000, "ciudad_id": 1 }
+
+POST /api/lugares — coordinates[0] no es número
+{ "name": "Sol", "coordinates": ["norte", -3.7], "timestamp": 1700005000, "ciudad_id": 1 }
+
+POST /api/lugares — coordinates como objeto
+{ "name": "Sol", "coordinates": { "lat": 40.4, "lng": -3.7 }, "timestamp": 1700005000, "ciudad_id": 1 }
+
+POST /api/lugares — timestamp no numérico
+{ "name": "Sol", "coordinates": [40.4, -3.7], "timestamp": "hoy", "ciudad_id": 1 }
+
+POST /api/lugares — Sin ciudad_id
+{ "name": "Sol", "coordinates": [40.4, -3.7], "timestamp": 1700005000 }
+
+POST /api/lugares — ciudad_id no numérico
+{ "name": "Sol", "coordinates": [40.4, -3.7], "timestamp": 1700005000, "ciudad_id": "uno" }
+
+POST /api/lugares — ciudad_id inexistente
+{ "name": "Sol", "coordinates": [40.4, -3.7], "timestamp": 1700005000, "ciudad_id": 999 }
+
+PUT /api/lugares/1
+{ "name": "Museo del Prado Renovado", "description": "Descripción actualizada", "coordinates": [40.4138, -3.6921], "timestamp": 1700001000, "ciudad_id": 1 }
+
+PUT /api/lugares/999
+{ "name": "Museo del Prado Renovado", "description": "Descripción actualizada", "coordinates": [40.4138, -3.6921], "timestamp": 1700001000, "ciudad_id": 1 }
+
+PUT /api/lugares/1 — ciudad_id inexistente
+{ "name": "Museo del Prado Renovado", "description": "Descripción actualizada", "coordinates": [40.4138, -3.6921], "timestamp": 1700001000, "ciudad_id": 1 }
+
+PUT /api/lugares/1 — Sin name
+{ "coordinates": [40.4, -3.6], "timestamp": 1700001000, "ciudad_id": 1 }
+
+DELETE /api/lugares/9
+DELETE /api/lugares/999
+DELETE /api/lugares/abc
+
+
+Para finalizar node en caso de no haberlo parado correctamente:
+taskkill /F /IM node.exe - Asi no tenemos nada corriendo sin querer

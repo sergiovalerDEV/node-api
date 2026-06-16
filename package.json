@@ -1,0 +1,68 @@
+{
+  "name": "db-node-project",
+  "version": "1.0.0",
+  "description": "Node Project - DT Academical Project - No Real Data",
+  "homepage": "https://github.com/sergiovalerDEV/db-node-project#readme",
+  "bugs": {
+    "url": "https://github.com/sergiovalerDEV/db-node-project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergiovalerDEV/db-node-project.git"
+  },
+  "license": "ISC",
+  "author": "Sergio Valer",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon",
+    "test": "jest",
+    "test:coverage": "jest --coverage --coverageReporters=lcov text json-summary"
+  },
+  "overrides": {
+    "js-yaml": "^4.1.0",
+    "uuid": "^11.1.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.22.5",
+    "sequelize": "^6.37.8",
+    "sqlite3": "^6.0.1",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jest": "^29.5.14",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^25.9.2",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.14",
+    "ts-jest": "^29.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.spec.ts",
+      "**/*.test.ts"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.spec.ts",
+      "!src/**/*.test.ts",
+      "!src/server.ts",
+      "!src/index.ts"
+    ],
+    "coverageDirectory": "coverage"
+  }
+}

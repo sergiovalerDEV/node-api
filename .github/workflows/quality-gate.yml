@@ -1,0 +1,44 @@
+name: Quality Gate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  quality:
+    name: Quality Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificar tipos TypeScript
+        run: npx tsc --noEmit
+
+      - name: Ejecutar tests con cobertura
+        run: npm run test:coverage
+
+      - name: Verificar cobertura mínima 90%
+        run: |
+          COVERAGE=$(cat coverage/coverage-summary.json | node -e "
+            const data = require('/dev/stdin');
+            console.log(data.total.lines.pct);
+          ")
+          echo "Cobertura: $COVERAGE%"
+          node -e "
+            const pct = $COVERAGE;
+            if (pct < 90) {
+              console.error('Cobertura insuficiente: ' + pct + '% (mínimo 90%)');
+              process.exit(1);
+            }
+            console.log('Cobertura OK: ' + pct + '%');
+          "
