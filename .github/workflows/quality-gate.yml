@@ -29,8 +29,9 @@ jobs:
 
       - name: Verificar cobertura mínima 90%
         run: |
-          COVERAGE=$(cat coverage/coverage-summary.json | node -e "
-            const data = require('/dev/stdin');
+          COVERAGE=$(node -e "
+            const fs = require('fs');
+            const data = JSON.parse(fs.readFileSync('coverage/coverage-summary.json', 'utf8'));
             console.log(data.total.lines.pct);
           ")
           echo "Cobertura: $COVERAGE%"
