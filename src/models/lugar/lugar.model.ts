@@ -1,6 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize';
-import sequelize from '../config/database';
-import type { Coordinates } from './ciudad.model';
+import sequelize from '../../config/database';
+import type { Coordinates } from '../ciudad/ciudad.model';
 
 export interface LugarAttributes {
   id: number;

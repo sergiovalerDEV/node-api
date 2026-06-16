@@ -1,15 +1,16 @@
-import { Lugar } from '../models';
+import { describe, expect, it, jest, beforeEach } from '@jest/globals';
+import { Lugar } from '../../models';
 import { createLugar, deleteLugar, findLugarById, findLugaresByCiudad, updateLugar } from './lugar.repository';
 
-jest.mock('../models', () => ({
-    __esModule: true,
-    Lugar: {
-        findAndCountAll: jest.fn(),
-        findByPk: jest.fn(),
-        create: jest.fn(),
-        update: jest.fn(),
-        destroy: jest.fn(),
-    },
+jest.mock('../../models', () => ({
+  __esModule: true,
+  Lugar: {
+    findAndCountAll: jest.fn(),
+    findByPk: jest.fn(),
+    create: jest.fn(),
+    update: jest.fn(),
+    destroy: jest.fn(),
+  },
 }));
 
 describe('lugar repository', () => {

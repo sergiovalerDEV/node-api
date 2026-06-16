@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
-import { Ciudad, Lugar } from '../models';
+import { Ciudad, Lugar } from '../../models';
 import { createCiudad, deleteCiudad, findAllCiudades, findCiudadById, updateCiudad } from './ciudad.repository';
 
-jest.mock('../models', () => ({
+jest.mock('../../models', () => ({
   __esModule: true,
   Ciudad: {
     findAndCountAll: jest.fn(),

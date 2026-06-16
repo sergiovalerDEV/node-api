@@ -1,6 +1,6 @@
-import * as ciudadRepo from '../repositories/ciudad.repository';
-import type { CiudadAttributes } from '../models/ciudad.model';
-import { NotFoundError } from '../errors/NotFoundError';
+import * as ciudadRepo from '../../repositories/ciudad/ciudad.repository';
+import type { CiudadAttributes } from '../../models/ciudad/ciudad.model';
+import { NotFoundError } from '../../errors/NotFoundError/NotFoundError';
 
 export const getAllCiudades = async (page: number, limit: number) => {
   const offset = (page - 1) * limit;

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { errorMiddleware } from './errorMiddleware';
-import { AppError } from '../errors/AppError';
+import { AppError } from '../errors/AppError/AppError';
 import { sendError } from '../adapters/http/sendResponse';
 
 jest.mock('../adapters/http/sendResponse', () => ({

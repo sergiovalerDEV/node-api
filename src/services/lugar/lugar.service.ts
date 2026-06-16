@@ -1,7 +1,7 @@
-import * as lugarRepo from '../repositories/lugar.repository';
-import * as ciudadRepo from '../repositories/ciudad.repository';
-import type { LugarAttributes } from '../models/lugar.model';
-import { NotFoundError } from '../errors/NotFoundError';
+import * as lugarRepo from '../../repositories/lugar/lugar.repository';
+import * as ciudadRepo from '../../repositories/ciudad/ciudad.repository';
+import type { LugarAttributes } from '../../models/lugar/lugar.model';
+import { NotFoundError } from '../../errors/NotFoundError/NotFoundError';
 
 export const getLugaresByCiudad = async (ciudad_id: number, page: number, limit: number) => {
   const ciudad = await ciudadRepo.findCiudadById(ciudad_id);

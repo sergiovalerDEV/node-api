@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
-import * as lugarService from '../services/lugar.service';
-import * as sendResponse from '../adapters/http/sendResponse';
+import * as lugarService from '../../services/lugar/lugar.service';
+import * as sendResponse from '../../adapters/http/sendResponse';
 import { getLugaresByCiudad, getLugarById, createLugar, updateLugar, deleteLugar } from './lugar.controller';
-import { ValidationError } from '../errors/ValidationError';
+import { ValidationError } from '../../errors/ValidationError/ValidationError';
 
 jest.mock('express-validator', () => ({ validationResult: jest.fn() }));
-jest.mock('../adapters/http/sendResponse', () => ({ sendSuccess: jest.fn(), sendPaginated: jest.fn() }));
-jest.mock('../services/lugar.service');
+jest.mock('../../adapters/http/sendResponse', () => ({ sendSuccess: jest.fn(), sendPaginated: jest.fn() }));
+jest.mock('../../services/lugar/lugar.service');
 
 describe('lugar controller', () => {
     const res = { status: jest.fn().mockReturnThis(), json: jest.fn() } as any;

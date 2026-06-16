@@ -1,5 +1,5 @@
-import { Lugar } from '../models';
-import type { LugarAttributes } from '../models/lugar.model';
+import { Lugar } from '../../models';
+import type { LugarAttributes } from '../../models/lugar/lugar.model';
 
 export const findLugaresByCiudad = async (ciudad_id: number, offset: number, limit: number) => {
   return Lugar.findAndCountAll({

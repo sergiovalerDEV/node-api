@@ -1,5 +1,5 @@
-import { Ciudad, Lugar } from '../models';
-import type { CiudadAttributes } from '../models/ciudad.model';
+import { Ciudad, Lugar } from '../../models';
+import type { CiudadAttributes } from '../../models/ciudad/ciudad.model';
 
 export const findAllCiudades = async (offset: number, limit: number) => {
   return Ciudad.findAndCountAll({

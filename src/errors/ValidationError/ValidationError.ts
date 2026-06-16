@@ -1,4 +1,4 @@
-import { AppError } from './AppError';
+import { AppError } from '../AppError/AppError';
 
 export class ValidationError extends AppError {
   constructor(message = 'Datos de entrada inválidos') {

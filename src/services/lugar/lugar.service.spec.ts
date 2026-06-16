@@ -1,11 +1,11 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
-import { NotFoundError } from '../errors/NotFoundError';
-import * as ciudadRepo from '../repositories/ciudad.repository';
-import * as lugarRepo from '../repositories/lugar.repository';
+import { NotFoundError } from '../../errors/NotFoundError/NotFoundError';
+import * as ciudadRepo from '../../repositories/ciudad/ciudad.repository';
+import * as lugarRepo from '../../repositories/lugar/lugar.repository';
 import { createLugar, deleteLugar, getLugarById, getLugaresByCiudad, updateLugar } from './lugar.service';
 
-jest.mock('../repositories/ciudad.repository');
-jest.mock('../repositories/lugar.repository');
+jest.mock('../../repositories/ciudad/ciudad.repository');
+jest.mock('../../repositories/lugar/lugar.repository');
 
 describe('lugar service', () => {
     beforeEach(() => {

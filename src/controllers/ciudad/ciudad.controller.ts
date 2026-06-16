@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
-import { sendSuccess, sendPaginated } from '../adapters/http/sendResponse';
-import { ValidationError } from '../errors/ValidationError';
-import * as ciudadService from '../services/ciudad.service';
-import type { CiudadAttributes } from '../models/ciudad.model';
+import { sendSuccess, sendPaginated } from '../../adapters/http/sendResponse';
+import { ValidationError } from '../../errors/ValidationError/ValidationError';
+import * as ciudadService from '../../services/ciudad/ciudad.service';
+import type { CiudadAttributes } from '../../models/ciudad/ciudad.model';
 
 export const getAllCiudades = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {

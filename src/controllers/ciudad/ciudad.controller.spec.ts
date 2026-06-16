@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
-import * as ciudadService from '../services/ciudad.service';
-import * as sendResponse from '../adapters/http/sendResponse';
+import * as ciudadService from '../../services/ciudad/ciudad.service';
+import * as sendResponse from '../../adapters/http/sendResponse';
 import { getAllCiudades, getCiudadById, createCiudad, updateCiudad, deleteCiudad } from './ciudad.controller';
-import { ValidationError } from '../errors/ValidationError';
+import { ValidationError } from '../../errors/ValidationError/ValidationError';
 
 jest.mock('express-validator', () => ({ validationResult: jest.fn() }));
-jest.mock('../adapters/http/sendResponse', () => ({ sendSuccess: jest.fn(), sendPaginated: jest.fn() }));
-jest.mock('../services/ciudad.service');
+jest.mock('../../adapters/http/sendResponse', () => ({ sendSuccess: jest.fn(), sendPaginated: jest.fn() }));
+jest.mock('../../services/ciudad/ciudad.service');
 
 describe('ciudad controller', () => {
     const res = { status: jest.fn().mockReturnThis(), json: jest.fn() } as any;

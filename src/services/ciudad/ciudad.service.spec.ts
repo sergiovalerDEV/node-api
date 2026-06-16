@@ -1,8 +1,8 @@
-import { NotFoundError } from '../errors/NotFoundError';
-import * as ciudadRepo from '../repositories/ciudad.repository';
+import { NotFoundError } from '../../errors/NotFoundError/NotFoundError';
+import * as ciudadRepo from '../../repositories/ciudad/ciudad.repository';
 import { createCiudad, deleteCiudad, getAllCiudades, getCiudadById, updateCiudad } from './ciudad.service';
 
-jest.mock('../repositories/ciudad.repository');
+jest.mock('../../repositories/ciudad/ciudad.repository');
 
 describe('ciudad service', () => {
     beforeEach(() => {

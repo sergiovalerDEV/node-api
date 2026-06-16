@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
-import { sendSuccess, sendPaginated } from '../adapters/http/sendResponse';
-import { ValidationError } from '../errors/ValidationError';
-import * as lugarService from '../services/lugar.service';
-import type { LugarAttributes } from '../models/lugar.model';
+import { sendSuccess, sendPaginated } from '../../adapters/http/sendResponse';
+import { ValidationError } from '../../errors/ValidationError/ValidationError';
+import * as lugarService from '../../services/lugar/lugar.service';
+import type { LugarAttributes } from '../../models/lugar/lugar.model';
 
 export const getLugaresByCiudad = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
