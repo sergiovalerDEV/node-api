@@ -19,7 +19,7 @@
     "start": "node dist/index.js",
     "dev": "nodemon",
     "test": "jest",
-    "test:coverage": "jest --coverage --coverageReporters=lcov text json-summary"
+    "test:coverage": "jest --coverage --coverageReporters=lcov --coverageReporters=text --coverageReporters=json-summary"
   },
   "overrides": {
     "js-yaml": "^4.1.0",
